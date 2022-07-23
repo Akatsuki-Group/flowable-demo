@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.7.2">
+  <signal id="singnal02" name="secondSingal" flowable:scope="processInstance"></signal>
+  <process id="event2002" name="信号中间捕获事件" isExecutable="true">
+    <startEvent id="start01" name="开始" flowable:formFieldValidation="true"></startEvent>
+    <intermediateCatchEvent id="signal01" name="信号捕获中间事件">
+      <signalEventDefinition signalRef="singnal02"></signalEventDefinition>
+    </intermediateCatchEvent>
+    <sequenceFlow id="sid-FBD95BC3-BA38-4863-95E6-E7D484FE80CB" sourceRef="start01" targetRef="signal01"></sequenceFlow>
+    <serviceTask id="task01" name="自动任务" flowable:class="com.bobo.flow.delegate.MyTwoJavaDelegate"></serviceTask>
+    <sequenceFlow id="sid-BF5FB671-5895-4FAC-8F92-E4BC4DEE821A" sourceRef="signal01" targetRef="task01"></sequenceFlow>
+    <endEvent id="end01" name="结束任务"></endEvent>
+    <sequenceFlow id="sid-4F4853C5-0FE6-48AB-BD80-A37CF807D90D" sourceRef="task01" targetRef="end01"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_event2002">
+    <bpmndi:BPMNPlane bpmnElement="event2002" id="BPMNPlane_event2002">
+      <bpmndi:BPMNShape bpmnElement="start01" id="BPMNShape_start01">
+        <omgdc:Bounds height="30.0" width="30.0" x="120.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="signal01" id="BPMNShape_signal01">
+        <omgdc:Bounds height="30.0" width="30.0" x="318.5" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="task01" id="BPMNShape_task01">
+        <omgdc:Bounds height="80.0" width="100.0" x="495.5" y="122.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end01" id="BPMNShape_end01">
+        <omgdc:Bounds height="28.0" width="28.0" x="690.0" y="151.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-BF5FB671-5895-4FAC-8F92-E4BC4DEE821A" id="BPMNEdge_sid-BF5FB671-5895-4FAC-8F92-E4BC4DEE821A" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="348.44853390329115" y="164.78775666509335"></omgdi:waypoint>
+        <omgdi:waypoint x="495.49999999999903" y="162.7068396226415"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-4F4853C5-0FE6-48AB-BD80-A37CF807D90D" id="BPMNEdge_sid-4F4853C5-0FE6-48AB-BD80-A37CF807D90D" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="595.4499999999996" y="162.94542586750788"></omgdi:waypoint>
+        <omgdi:waypoint x="690.0016973189436" y="164.73506227304313"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-FBD95BC3-BA38-4863-95E6-E7D484FE80CB" id="BPMNEdge_sid-FBD95BC3-BA38-4863-95E6-E7D484FE80CB" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="15.0" flowable:targetDockerY="15.0">
+        <omgdi:waypoint x="149.94999953609073" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="318.5" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

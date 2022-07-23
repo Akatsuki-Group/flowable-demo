@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:flowable="http://flowable.org/bpmn" targetNamespace="10000008">
+    <bpmn2:process id="timer" name="时间事件" isExecutable="true">
+        <bpmn2:documentation />
+        <bpmn2:startEvent id="StartEvent_1" flowable:category="todo">
+            <bpmn2:extensionElements>
+                <flowable:fieldsPermission value="[]" />
+            </bpmn2:extensionElements>
+            <bpmn2:outgoing>Flow_1pxjmne</bpmn2:outgoing>
+        </bpmn2:startEvent>
+        <bpmn2:sequenceFlow id="Flow_1pxjmne" sourceRef="StartEvent_1" targetRef="Event_0z73fqu" />
+        <bpmn2:intermediateCatchEvent id="Event_0z73fqu" name="1" flowable:category="todo" flowable:name="1">
+            <bpmn2:incoming>Flow_1pxjmne</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_0zu00ky</bpmn2:outgoing>
+            <bpmn2:timerEventDefinition id="TimerEventDefinition_0jyde80">
+                <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">PT20S</bpmn2:timeDuration>
+            </bpmn2:timerEventDefinition>
+        </bpmn2:intermediateCatchEvent>
+        <bpmn2:userTask id="Activity_0k234kq" name="1" flowable:category="todo" flowable:buttons="inherit" flowable:assignee="IamUser:10000" flowable:name="1">
+            <bpmn2:extensionElements>
+                <flowable:fieldsPermission value="[]" />
+            </bpmn2:extensionElements>
+            <bpmn2:incoming>Flow_0zu00ky</bpmn2:incoming>
+            <bpmn2:outgoing>Flow_1goafri</bpmn2:outgoing>
+        </bpmn2:userTask>
+        <bpmn2:sequenceFlow id="Flow_0zu00ky" sourceRef="Event_0z73fqu" targetRef="Activity_0k234kq" />
+        <bpmn2:endEvent id="Event_0dpvhx4" flowable:category="todo">
+            <bpmn2:incoming>Flow_1goafri</bpmn2:incoming>
+        </bpmn2:endEvent>
+        <bpmn2:sequenceFlow id="Flow_1goafri" sourceRef="Activity_0k234kq" targetRef="Event_0dpvhx4" />
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+        <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="timer">
+            <bpmndi:BPMNEdge id="Flow_1goafri_di" bpmnElement="Flow_1goafri">
+                <di:waypoint x="450" y="178" />
+                <di:waypoint x="512" y="178" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0zu00ky_di" bpmnElement="Flow_0zu00ky">
+                <di:waypoint x="288" y="178" />
+                <di:waypoint x="350" y="178" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_1pxjmne_di" bpmnElement="Flow_1pxjmne">
+                <di:waypoint x="196" y="178" />
+                <di:waypoint x="252" y="178" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+                <dc:Bounds x="160" y="160" width="36" height="36" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_1s7eef0_di" bpmnElement="Event_0z73fqu">
+                <dc:Bounds x="252" y="160" width="36" height="36" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="267" y="203" width="7" height="14" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_0k234kq_di" bpmnElement="Activity_0k234kq">
+                <dc:Bounds x="350" y="138" width="100" height="80" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_0dpvhx4_di" bpmnElement="Event_0dpvhx4">
+                <dc:Bounds x="512" y="160" width="36" height="36" />
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
